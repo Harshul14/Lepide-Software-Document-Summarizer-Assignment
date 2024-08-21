@@ -1,3 +1,5 @@
+---
+
 # Flask-React File Summarization Application
 
 This repository contains a monorepo with both the backend and frontend code for a file summarization application. The backend is built with Flask, and the frontend is built with React. The application allows users to upload a text file, which is then processed and summarized by the backend.
@@ -69,10 +71,47 @@ Once the application is running:
 3. The file will be uploaded to the Flask backend for processing.
 4. The summarized text will be displayed on the frontend.
 
-## Additional Notes
+## Project Approach and Challenges
 
-- **CORS Issues**: The backend uses `flask-cors` to handle Cross-Origin Resource Sharing (CORS) between the Flask backend and React frontend.
-- **Error Handling**: The frontend uses Axios for API calls and handles errors gracefully with appropriate messages.
+### Approach
+
+#### 1. **Monorepo Structure**
+   - The project is organized as a monorepo, which houses both the backend (Flask) and frontend (React) codebases. This structure simplifies version control, dependency management, and deployment, as all related components are maintained in a single repository.
+   
+#### 2. **Backend (Flask)**
+   - The backend is built with Flask, and serves as an API to process and summarize uploaded text files. 
+   - Flask was chosen due to its simplicity and ease of integration with various Python libraries used for text processing.
+   - The `flask-cors` package was used to handle Cross-Origin Resource Sharing (CORS) between the backend and frontend, ensuring that API requests from the React frontend could be processed securely by the Flask backend.
+
+#### 3. **Frontend (React)**
+   - The frontend is built with React (a JavaScript library) for building user interface.
+   - The interface allows users to upload a file and view the summarized text. Axios is used to make HTTP requests to the Flask backend.
+
+#### 4. **Docker and Docker Compose**
+   - Docker was used to containerize both the backend and frontend, ensuring that the application runs consistently across different environments.
+   - A Docker Compose file was created to define and manage running both the Flask and React applications simultaneously.
+
+### Challenges and Solutions
+
+#### 1. **Handling CORS Issues**
+   - **Challenge**: During the development, the frontend (running on `http://localhost:3000`) encountered CORS (Cross-Origin Resource Sharing) issues when making requests to the backend (running on `http://localhost:5000`). This happened because browsers block requests from one domain to another unless explicitly allowed by the server.
+   - **Solution**: The `flask-cors` library was integrated into the Flask application to resolve this issue. This library allows the backend to include CORS headers in its responses, thereby permitting the frontend to make cross-origin requests.
+
+#### 2. **File Upload and Error Handling**
+   - **Challenge**: Ensuring that the file upload functionality worked seamlessly across the frontend and backend, while also handling errors, was a key challenge.
+   - **Solution**: Axios was used in the React frontend to handle file uploads, and error handling was implemented to catch and display meaningful error messages to the user. On the backend, appropriate validations were added to handle different file types and ensure smooth processing.
+
+#### 3. **Version Compatibility**
+   - **Challenge**: There was a compatibility issue between Flask and Werkzeug, where certain deprecated functions in Werkzeug caused the Flask application to fail.
+   - **Solution**: The issue was resolved by specifying compatible versions of Flask and Werkzeug in the `requirements.txt` file, ensuring that the dependencies work together without issues.
+
+#### 4. **Flask-Werkzeug Import Error**
+   - **Challenge**: An `ImportError` was encountered when trying to import `url_quote` from `werkzeug.urls` in the Flask application. This was due to changes in the Werkzeug package that deprecated certain functions.
+   - **Solution**: The issue was addressed by updating the version of Flask and Werkzeug in the `requirements.txt` file to ensure compatibility. Additionally, deprecated imports were replaced with their modern equivalents, ensuring the Flask application runs smoothly without errors.
+
+### Conclusion
+
+The project involved integrating multiple technologies and overcoming several challenges, particularly related to CORS, Dockerization, and dependency management. Through careful planning and iterative testing, these challenges were addressed, resulting in a robust and scalable file summarization application that can be easily deployed and maintained.
 
 ## Contributing
 
@@ -81,5 +120,3 @@ Contributions are welcome! Please fork the repository and submit a pull request 
 ## License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
-
----
