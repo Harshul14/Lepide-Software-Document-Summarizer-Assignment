@@ -14,8 +14,8 @@ Make sure you have the following installed on your machine:
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/yourusername/your-repo.git
-cd your-repo
+git clone https://github.com/Harshul14/Lepide-Software-Document-Summarizer.git
+cd your-repo/root
 ```
 
 ### 2. Build and Run the Application
