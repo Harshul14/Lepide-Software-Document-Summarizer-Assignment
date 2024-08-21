@@ -113,6 +113,26 @@ Once the application is running:
 
 The project involved integrating multiple technologies and overcoming several challenges, particularly related to CORS, Dockerization, and dependency management. Through careful planning and iterative testing, these challenges were addressed, resulting in a robust and scalable file summarization application that can be easily deployed and maintained.
 
+## Bibliography
+
+This project leverages several open-source libraries and frameworks, which are critical to its functionality:
+
+### Backend
+- **Flask**: A lightweight WSGI web application framework in Python. [GekksforGeeks Flask-React Documentation](https://www.geeksforgeeks.org/how-to-connect-reactjs-with-flask-api/)
+- **flask-cors**: A Flask extension for handling Cross-Origin Resource Sharing (CORS), making it easier to enable CORS on a Flask application. [Flask Cors Python Documentation](https://pypi.org/project/Flask-Cors/)
+
+- **Enable Cors in Flask**: [Stackoverflow](https://stackoverflow.com/questions/25594893/how-to-enable-cors-in-flask)
+- **Werkzeug**: A comprehensive WSGI web application library. [GitHub Repository](https://github.com/pallets/werkzeug)
+
+### Frontend
+- **React**: A JavaScript library for building user interfaces, maintained by Facebook and a community of individual developers. [GeeksforGeeks React file Uploading](https://www.geeksforgeeks.org/file-uploading-in-react-js/)
+- **Axios**: A promise-based HTTP client for the browser and Node.js, used for making HTTP requests from the frontend to the backend. [GitHub Repository](https://github.com/axios/axios)
+
+### Docker and Deployment
+- **Docker(Flask)**: A platform to develop, ship, and run applications inside containers. [Dockerise a Flask Application(Medium)](https://medium.com/geekculture/how-to-dockerize-your-flask-application-2d0487ecefb8)
+- **Docker(React)**: A platform to develop, ship, and run applications inside containers. [Dockerise a React Application(Medium)](https://behdadk.medium.com/how-to-dockerize-a-react-application-in-5-minutes-c6093636628f)
+- **Docker Compose**: A tool for defining and running multi-container Docker applications. [Medium Article](https://medium.com/@adrianhuber17/how-to-dockerize-a-simple-app-using-flask-react-postgresql-and-socket-io-987b1b04faf0)
+
 ## Contributing
 
 Contributions are welcome! Please fork the repository and submit a pull request with your changes.
